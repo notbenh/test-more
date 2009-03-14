@@ -3,6 +3,11 @@ use Moose;
 
 extends qw{Test::Builder2};
 
+has i => (
+   is => 'rw',
+   isa => 'Int',
+);
+
 has result => (
    is => 'rw',
    isa => 'Maybe[Bool]',

@@ -10,6 +10,10 @@ sub display {
           ($res->result) ? '' : 'not ',
           (length $res->name) ? ' - ' . $res->name : ''
    ;
+   map{ printf qq{# %s\n}, $_ } split /\n/, $res->reason
+      if defined $res->reason 
+      && length $res->reason 
+      && ! $res->result ;
    
 }
 

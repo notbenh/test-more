@@ -11,15 +11,18 @@ has output => (
    },
 );
 
-has i => (
+has _i => (
    is => 'rw',
-   isa => 'Int',
-   default => 0,
+   isa => 'Test::Builder2::Ticker',
+   default => sub{
+      use Test::Builder2::Ticker;
+      Test::Builder2::Ticker->new;
+   },
 );
 
 sub ok {
    my ($self, $test) = @_;
-   my $res = Test::Builder2::Result->new(output => $self->output);
+   my $res = Test::Builder2::Result->new(output => $self->output, i => $self->_i->next );
    $res->result( ($test) ? 1 : 0 );
    return $res;
 }
