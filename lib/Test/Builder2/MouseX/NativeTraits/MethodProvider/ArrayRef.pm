@@ -1,9 +1,9 @@
-package MouseX::NativeTraits::MethodProvider::ArrayRef;
-use Mouse;
+package Test::Builder2::MouseX::NativeTraits::MethodProvider::ArrayRef;
+use Test::Builder2::Mouse;
 
 use List::Util;
 
-extends qw(MouseX::NativeTraits::MethodProvider);
+extends qw(Test::Builder2::MouseX::NativeTraits::MethodProvider);
 
 sub generate_count {
     my($self) = @_;
@@ -454,19 +454,19 @@ sub generate_for_each_pair {
     };
 }
 
-no Mouse;
+no Test::Builder2::Mouse;
 __PACKAGE__->meta->make_immutable();
 
 __END__
 
 =head1 NAME
 
-MouseX::NativeTraits::MethodProvider::ArrayRef - Provides methods for ArrayRef
+Test::Builder2::MouseX::NativeTraits::MethodProvider::ArrayRef - Provides methods for ArrayRef
 
 =head1 DESCRIPTION
 
 This class provides method generators for the C<Array> trait.
-See L<Mouse::Meta::Attribute::Custom::Trait::Array> for details.
+See L<Test::Builder2::Mouse::Meta::Attribute::Custom::Trait::Array> for details.
 
 =head1 METHOD GENERATORS
 
@@ -546,6 +546,6 @@ The same as C<generate_remove>. Note that it is different from C<CORE::delete>.
 
 =head1 SEE ALSO
 
-L<MouseX::NativeTraits>
+L<Test::Builder2::MouseX::NativeTraits>
 
 =cut

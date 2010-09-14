@@ -1,7 +1,7 @@
-package MouseX::NativeTraits::MethodProvider::Counter;
-use Mouse;
+package Test::Builder2::MouseX::NativeTraits::MethodProvider::Counter;
+use Test::Builder2::Mouse;
 
-extends qw(MouseX::NativeTraits::MethodProvider);
+extends qw(Test::Builder2::MouseX::NativeTraits::MethodProvider);
 
 sub generate_reset {
     my($self)   = @_;
@@ -78,19 +78,19 @@ sub generate_dec {
     };
 }
 
-no Mouse;
+no Test::Builder2::Mouse;
 __PACKAGE__->meta->make_immutable();
 
 __END__
 
 =head1 NAME
 
-MouseX::NativeTraits::MethodProvider::Counter - Provides methods for Counter
+Test::Builder2::MouseX::NativeTraits::MethodProvider::Counter - Provides methods for Counter
 
 =head1 DESCRIPTION
 
 This class provides method generators for the C<Counter> trait.
-See L<Mouse::Meta::Attribute::Custom::Trait::Counter> for details.
+See L<Test::Builder2::Mouse::Meta::Attribute::Custom::Trait::Counter> for details.
 
 =head1 METHOD GENERATORS
 
@@ -108,6 +108,6 @@ See L<Mouse::Meta::Attribute::Custom::Trait::Counter> for details.
 
 =head1 SEE ALSO
 
-L<MouseX::NativeTraits>
+L<Test::Builder2::MouseX::NativeTraits>
 
 =cut

@@ -1,28 +1,28 @@
-package MouseX::NativeTraits::ArrayRef;
-use Mouse::Role;
+package Test::Builder2::MouseX::NativeTraits::ArrayRef;
+use Test::Builder2::Mouse::Role;
 
-with 'MouseX::NativeTraits';
+with 'Test::Builder2::MouseX::NativeTraits';
 
 sub method_provider_class {
-    return 'MouseX::NativeTraits::MethodProvider::ArrayRef';
+    return 'Test::Builder2::MouseX::NativeTraits::MethodProvider::ArrayRef';
 }
 
 sub helper_type {
     return 'ArrayRef';
 }
 
-no Mouse::Role;
+no Test::Builder2::Mouse::Role;
 1;
 __END__
 
 =head1 NAME
 
-MouseX::NativeTraits::ArrayRef - Helper trait for ArrayRef attributes
+Test::Builder2::MouseX::NativeTraits::ArrayRef - Helper trait for ArrayRef attributes
 
 =head1 SYNOPSIS
 
     package Stuff;
-    use Mouse;
+    use Test::Builder2::Mouse;
 
     has 'options' => (
        traits     => ['Array'],
@@ -52,7 +52,7 @@ array operations.
 =head1 PROVIDED METHODS
 
 These methods are implemented in
-L<MouseX::NativeTraits::MethodProvider::ArrayRef>.
+L<Test::Builder2::MouseX::NativeTraits::MethodProvider::ArrayRef>.
 
 =over 4
 
@@ -261,6 +261,6 @@ Currently (as of Moose 0.98) this is a Mouse specific method.
 
 =head1 SEE ALSO
 
-L<MouseX::NativeTraits>
+L<Test::Builder2::MouseX::NativeTraits>
 
 =cut

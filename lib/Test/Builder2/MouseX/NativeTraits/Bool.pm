@@ -1,10 +1,10 @@
-package MouseX::NativeTraits::Bool;
-use Mouse::Role;
+package Test::Builder2::MouseX::NativeTraits::Bool;
+use Test::Builder2::Mouse::Role;
 
-with 'MouseX::NativeTraits';
+with 'Test::Builder2::MouseX::NativeTraits';
 
 sub method_provider_class {
-    return 'MouseX::NativeTraits::MethodProvider::Bool';
+    return 'Test::Builder2::MouseX::NativeTraits::MethodProvider::Bool';
 }
 
 sub helper_type {
@@ -16,12 +16,12 @@ __END__
 
 =head1 NAME
 
-MouseX::NativeTraits::Bool - Helper trait for Bool attributes
+Test::Builder2::MouseX::NativeTraits::Bool - Helper trait for Bool attributes
 
 =head1 SYNOPSIS
 
   package Room;
-  use Mouse;
+  use Test::Builder2::Mouse;
 
   has 'is_lit' => (
       traits    => ['Bool'],
@@ -50,7 +50,7 @@ basic math operations.
 =head1 PROVIDED METHODS
 
 These methods are implemented in
-L<MouseX::NativeTraits::MethodProvider::Bool>. It is important to
+L<Test::Builder2::MouseX::NativeTraits::MethodProvider::Bool>. It is important to
 note that all those methods do in place modification of the value stored in
 the attribute.
 
@@ -88,6 +88,6 @@ Equivalent of 'not C<$value>'.
 
 =head1 SEE ALSO
 
-L<MouseX::NativeTraits>.
+L<Test::Builder2::MouseX::NativeTraits>.
 
 =cut

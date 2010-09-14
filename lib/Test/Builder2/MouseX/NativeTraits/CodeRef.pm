@@ -1,10 +1,10 @@
-package MouseX::NativeTraits::CodeRef;
-use Mouse::Role;
+package Test::Builder2::MouseX::NativeTraits::CodeRef;
+use Test::Builder2::Mouse::Role;
 
-with 'MouseX::NativeTraits';
+with 'Test::Builder2::MouseX::NativeTraits';
 
 sub method_provider_class {
-    return 'MouseX::NativeTraits::MethodProvider::CodeRef';
+    return 'Test::Builder2::MouseX::NativeTraits::MethodProvider::CodeRef';
 }
 
 sub helper_type {
@@ -16,12 +16,12 @@ __END__
 
 =head1 NAME
 
-MouseX::NativeTraits::CodeRef - Helper trait for CodeRef attributes
+Test::Builder2::MouseX::NativeTraits::CodeRef - Helper trait for CodeRef attributes
 
 =head1 SYNOPSIS
 
   package Foo;
-  use Mouse;
+  use Test::Builder2::Mouse;
 
   has 'callback' => (
       traits    => ['Code'],
@@ -65,6 +65,6 @@ Calls the coderef with the given args.
 
 =head1 SEE ALSO
 
-L<MouseX::NativeTraits>
+L<Test::Builder2::MouseX::NativeTraits>
 
 =cut

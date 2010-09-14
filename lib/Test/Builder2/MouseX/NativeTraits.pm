@@ -1,7 +1,7 @@
-package MouseX::NativeTraits;
+package Test::Builder2::MouseX::NativeTraits;
 
 use 5.006_002;
-use Mouse::Role;
+use Test::Builder2::Mouse::Role;
 
 our $VERSION = '0.002';
 
@@ -26,7 +26,7 @@ has method_provider => (
 sub _build_method_provider{
     my($self) = @_;
     my $mpc = $self->method_provider_class;
-    Mouse::Util::load_class($mpc);
+    Test::Builder2::Mouse::Util::load_class($mpc);
     return $mpc->new(attr => $self);
 }
 
@@ -38,7 +38,7 @@ before _process_options => sub {
     $options->{isa} = $type
         if !exists $options->{isa};
 
-    my $isa = Mouse::Util::TypeConstraints::find_or_create_isa_type_constraint(
+    my $isa = Test::Builder2::Mouse::Util::TypeConstraints::find_or_create_isa_type_constraint(
         $options->{isa} );
 
     ( $isa->is_a_type_of($type) )
@@ -75,23 +75,23 @@ around _make_delegation_method => sub {
     return $self->method_provider->generate($handle_name, $method_to_call);
 };
 
-no Mouse::Role;
+no Test::Builder2::Mouse::Role;
 
 1;
 __END__
 
 =head1 NAME
 
-MouseX::NativeTraits - Extend your attribute interfaces for Mouse
+Test::Builder2::MouseX::NativeTraits - Extend your attribute interfaces for Mouse
 
 =head1 VERSION
 
-This document describes MouseX::NativeTraits version 0.002.
+This document describes Test::Builder2::MouseX::NativeTraits version 0.002.
 
 =head1 SYNOPSIS
 
     package MyClass;
-    use Mouse;
+    use Test::Builder2::Mouse;
 
     has mapping => (
         traits    => ['Hash'],
@@ -109,13 +109,13 @@ This document describes MouseX::NativeTraits version 0.002.
 
 =head1 DESCRIPTION
 
-While L<Mouse> attributes provide a way to name your accessors, readers,
-writers, clearers and predicates, MouseX::NativeTraits provides commonly
+While L<Test::Builder2::Mouse> attributes provide a way to name your accessors, readers,
+writers, clearers and predicates, Test::Builder2::MouseX::NativeTraits provides commonly
 used attribute helper methods for more specific types of data.
 
 As seen in the L</SYNOPSIS>, you specify the data structure via the
 C<traits> parameter. These traits will be loaded automatically, so
-you need not load MouseX::NativeTraits explicitly.
+you need not load Test::Builder2::MouseX::NativeTraits explicitly.
 
 This extention is compatible with Moose native traits, although it
 is not a part of Mouse core.
@@ -146,7 +146,7 @@ Common methods for array references.
        }
     );
 
-See L<MouseX::NativeTraits::ArrayRef>.
+See L<Test::Builder2::MouseX::NativeTraits::ArrayRef>.
 
 =head2 Hash
 
@@ -164,7 +164,7 @@ Common methods for hash references.
         }
     );
 
-See L<MouseX::NativeTraits::HashRef>.
+See L<Test::Builder2::MouseX::NativeTraits::HashRef>.
 
 =head2 Code
 
@@ -180,7 +180,7 @@ Common methods for code references.
        }
     );
 
-See L<MouseX::NativeTraits::CodeRef>.
+See L<Test::Builder2::MouseX::NativeTraits::CodeRef>.
 
 =head2 Bool
 
@@ -199,7 +199,7 @@ Common methods for boolean values.
         }
     );
 
-See L<MouseX::NativeTraits::Bool>.
+See L<Test::Builder2::MouseX::NativeTraits::Bool>.
 
 =head2 String
 
@@ -216,7 +216,7 @@ Common methods for string operations.
         }
     );
 
-See L<MouseX::NativeTraits::Str>.
+See L<Test::Builder2::MouseX::NativeTraits::Str>.
 
 =head2 Number
 
@@ -238,7 +238,7 @@ Common numerical operations.
         }
     );
 
-See L<MouseX::NativeTraits::Num>.
+See L<Test::Builder2::MouseX::NativeTraits::Num>.
 
 =head2 Counter
 
@@ -256,7 +256,7 @@ Methods for incrementing and decrementing a counter attribute.
         }
     );
 
-See L<MouseX::NativeTraits::Counter>.
+See L<Test::Builder2::MouseX::NativeTraits::Counter>.
 
 =head1 DEPENDENCIES
 
@@ -270,9 +270,9 @@ to cpan-RT.
 
 =head1 SEE ALSO
 
-L<Mouse>
+L<Test::Builder2::Mouse>
 
-L<MouseX::AttributeHelpers>
+L<Test::Builder2::MouseX::AttributeHelpers>
 
 L<Moose>
 

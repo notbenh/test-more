@@ -1,7 +1,7 @@
-package MouseX::NativeTraits::MethodProvider::HashRef;
-use Mouse;
+package Test::Builder2::MouseX::NativeTraits::MethodProvider::HashRef;
+use Test::Builder2::Mouse;
 
-extends qw(MouseX::NativeTraits::MethodProvider);
+extends qw(Test::Builder2::MouseX::NativeTraits::MethodProvider);
 
 sub generate_keys {
     my($self) = @_;
@@ -243,19 +243,19 @@ sub generate_for_each_pair {
 }
 
 
-no Mouse;
+no Test::Builder2::Mouse;
 __PACKAGE__->meta->make_immutable();
 
 __END__
 
 =head1 NAME
 
-MouseX::NativeTraits::MethodProvider::HashRef - Provides methods for HashRef
+Test::Builder2::MouseX::NativeTraits::MethodProvider::HashRef - Provides methods for HashRef
 
 =head1 DESCRIPTION
 
 This class provides method generators for the C<Hash> trait.
-See L<Mouse::Meta::Attribute::Custom::Trait::Hash> for details.
+See L<Test::Builder2::Mouse::Meta::Attribute::Custom::Trait::Hash> for details.
 
 =head1 METHOD GENERATORS
 
@@ -307,6 +307,6 @@ The same as C<generate_store>.
 
 =head1 SEE ALSO
 
-L<MouseX::NativeTraits>
+L<Test::Builder2::MouseX::NativeTraits>
 
 =cut

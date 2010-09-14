@@ -1,10 +1,10 @@
-package MouseX::NativeTraits::Str;
-use Mouse::Role;
+package Test::Builder2::MouseX::NativeTraits::Str;
+use Test::Builder2::Mouse::Role;
 
-with 'MouseX::NativeTraits';
+with 'Test::Builder2::MouseX::NativeTraits';
 
 sub method_provider_class {
-    return 'MouseX::NativeTraits::MethodProvider::Str';
+    return 'Test::Builder2::MouseX::NativeTraits::MethodProvider::Str';
 }
 
 sub helper_type {
@@ -13,18 +13,18 @@ sub helper_type {
 
 sub _default_default{ '' }
 
-no Mouse::Role;
+no Test::Builder2::Mouse::Role;
 1;
 __END__
 
 =head1 NAME
 
-MouseX::NativeTraits::Str - Helper trait for Str attributes
+Test::Builder2::MouseX::NativeTraits::Str - Helper trait for Str attributes
 
 =head1 SYNOPSIS
 
   package MyHomePage;
-  use Mouse;
+  use Test::Builder2::Mouse;
 
   has 'text' => (
       traits    => ['String'],
@@ -50,7 +50,7 @@ completion.
 =head1 PROVIDED METHODS
 
 These methods are implemented in
-L<MouseX::NativeTraits::MethodProvider::Str>. It is important to
+L<Test::Builder2::MouseX::NativeTraits::MethodProvider::Str>. It is important to
 note that all those methods do in place modification of the value stored in
 the attribute.
 
@@ -125,6 +125,6 @@ based on C<substr>'s arity.
 
 =head1 SEE ALSO
 
-L<MouseX::NativeTraits>
+L<Test::Builder2::MouseX::NativeTraits>
 
 =cut

@@ -1,7 +1,7 @@
-package MouseX::NativeTraits::MethodProvider::Str;
-use Mouse;
+package Test::Builder2::MouseX::NativeTraits::MethodProvider::Str;
+use Test::Builder2::Mouse;
 
-extends qw(MouseX::NativeTraits::MethodProvider);
+extends qw(Test::Builder2::MouseX::NativeTraits::MethodProvider);
 
 sub generate_append {
     my($self) = @_;
@@ -156,19 +156,19 @@ sub generate_substr {
     };
 }
 
-no Mouse;
+no Test::Builder2::Mouse;
 __PACKAGE__->meta->make_immutable();
 
 __END__
 
 =head1 NAME
 
-MouseX::NativeTraits::MethodProvider::Str - Provides methods for Str
+Test::Builder2::MouseX::NativeTraits::MethodProvider::Str - Provides methods for Str
 
 =head1 DESCRIPTION
 
 This class provides method generators for the C<String> trait.
-See L<Mouse::Meta::Attribute::Custom::Trait::String> for details.
+See L<Test::Builder2::Mouse::Meta::Attribute::Custom::Trait::String> for details.
 
 =head1 METHOD GENERATORS
 
@@ -200,7 +200,7 @@ See L<Mouse::Meta::Attribute::Custom::Trait::String> for details.
 
 =head1 SEE ALSO
 
-L<MouseX::NativeTraits>.
+L<Test::Builder2::MouseX::NativeTraits>.
 
 =cut
 

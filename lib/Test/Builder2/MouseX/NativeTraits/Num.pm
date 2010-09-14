@@ -1,17 +1,17 @@
-package MouseX::NativeTraits::Num;
-use Mouse::Role;
+package Test::Builder2::MouseX::NativeTraits::Num;
+use Test::Builder2::Mouse::Role;
 
-with 'MouseX::NativeTraits';
+with 'Test::Builder2::MouseX::NativeTraits';
 
 sub method_provider_class {
-    return 'MouseX::NativeTraits::MethodProvider::Num';
+    return 'Test::Builder2::MouseX::NativeTraits::MethodProvider::Num';
 }
 
 sub helper_type {
     return 'Num';
 }
 
-no Mouse::Role;
+no Test::Builder2::Mouse::Role;
 1;
 __END__
 
@@ -19,12 +19,12 @@ __END__
 
 =head1 NAME
 
-MouseX::NativeTraits::Num - Helper trait for Num attributes
+Test::Builder2::MouseX::NativeTraits::Num - Helper trait for Num attributes
 
 =head1 SYNOPSIS
 
   package Real;
-  use Mouse;
+  use Test::Builder2::Mouse;
 
   has 'integer' => (
       traits    => ['Number'],
@@ -103,6 +103,6 @@ Sets the current value of the attribute to its absolute value.
 
 =head1 SEE ALSO
 
-L<MouseX::NativeTraits>
+L<Test::Builder2::MouseX::NativeTraits>
 
 =cut

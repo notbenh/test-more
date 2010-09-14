@@ -1,7 +1,7 @@
-package MouseX::NativeTraits::MethodProvider::Bool;
-use Mouse;
+package Test::Builder2::MouseX::NativeTraits::MethodProvider::Bool;
+use Test::Builder2::Mouse;
 
-extends qw(MouseX::NativeTraits::MethodProvider);
+extends qw(Test::Builder2::MouseX::NativeTraits::MethodProvider);
 
 sub generate_set {
     my($self) = @_;
@@ -29,19 +29,19 @@ sub generate_not {
     return sub { !$reader->( $_[0] ) };
 }
 
-no Mouse;
+no Test::Builder2::Mouse;
 __PACKAGE__->meta->make_immutable();
 
 __END__
 
 =head1 NAME
 
-MouseX::NativeTraits::MethodProvider::Bool - Provides methods for Bool
+Test::Builder2::MouseX::NativeTraits::MethodProvider::Bool - Provides methods for Bool
 
 =head1 DESCRIPTION
 
 This class provides method generators for the C<Bool> trait.
-See L<Mouse::Meta::Attribute::Custom::Trait::Bool> for details.
+See L<Test::Builder2::Mouse::Meta::Attribute::Custom::Trait::Bool> for details.
 
 =head1 METHOD GENERATORS
 
@@ -59,6 +59,6 @@ See L<Mouse::Meta::Attribute::Custom::Trait::Bool> for details.
 
 =head1 SEE ALSO
 
-L<MouseX::NativeTraits>
+L<Test::Builder2::MouseX::NativeTraits>
 
 =cut

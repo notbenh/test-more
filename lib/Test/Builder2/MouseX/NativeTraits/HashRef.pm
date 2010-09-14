@@ -1,28 +1,28 @@
-package MouseX::NativeTraits::HashRef;
-use Mouse::Role;
+package Test::Builder2::MouseX::NativeTraits::HashRef;
+use Test::Builder2::Mouse::Role;
 
-with 'MouseX::NativeTraits';
+with 'Test::Builder2::MouseX::NativeTraits';
 
 sub method_provider_class {
-    return 'MouseX::NativeTraits::MethodProvider::HashRef';
+    return 'Test::Builder2::MouseX::NativeTraits::MethodProvider::HashRef';
 }
 
 sub helper_type {
     return 'HashRef';
 }
 
-no Mouse::Role;
+no Test::Builder2::Mouse::Role;
 1;
 __END__
 
 =head1 NAME
 
-MouseX::NativeTraits::HashRef - Helper trait for HashRef attributes
+Test::Builder2::MouseX::NativeTraits::HashRef - Helper trait for HashRef attributes
 
 =head1 SYNOPSIS
 
   package Stuff;
-  use Mouse;
+  use Test::Builder2::Mouse;
 
   has 'options' => (
       traits    => ['Hash'],
@@ -47,7 +47,7 @@ hash-like operations.
 =head1 PROVIDED METHODS
 
 These methods are implemented in
-L<MouseX::NativeTraits::MethodProvider::HashRef>.
+L<Test::Builder2::MouseX::NativeTraits::MethodProvider::HashRef>.
 
 =over 4
 
@@ -132,6 +132,6 @@ arguments, sets the value of the specified key.
 
 =head1 SEE ALSO
 
-L<MouseX::NativeTraits>
+L<Test::Builder2::MouseX::NativeTraits>
 
 =cut

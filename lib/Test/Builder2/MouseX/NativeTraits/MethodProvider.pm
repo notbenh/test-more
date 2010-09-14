@@ -1,5 +1,5 @@
-package MouseX::NativeTraits::MethodProvider;
-use Mouse;
+package Test::Builder2::MouseX::NativeTraits::MethodProvider;
+use Test::Builder2::Mouse;
 
 has attr => (
     is       => 'ro',
@@ -61,7 +61,7 @@ sub get_generators {
     return grep{ s/\A generate_ //xms } $self->meta->get_method_list;
 }
 
-no Mouse;
+no Test::Builder2::Mouse;
 __PACKAGE__->meta->make_immutable(strict_constructor => 1);
 
 __END__
@@ -69,7 +69,7 @@ __END__
 
 =head1 NAME
 
-MouseX::NativeTraits::MethodProvider - The common base class for method providers
+Test::Builder2::MouseX::NativeTraits::MethodProvider - The common base class for method providers
 
 =head1 DESCRIPTION
 
@@ -105,6 +105,6 @@ Shortcut for C<< $provider->attr->get_write_method_ref >>.
 
 =head1 SEE ALSO
 
-L<MouseX::NativeTraits>
+L<Test::Builder2::MouseX::NativeTraits>
 
 =cut

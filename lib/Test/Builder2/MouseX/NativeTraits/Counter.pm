@@ -1,10 +1,10 @@
-package MouseX::NativeTraits::Counter;
-use Mouse::Role;
+package Test::Builder2::MouseX::NativeTraits::Counter;
+use Test::Builder2::Mouse::Role;
 
-with 'MouseX::NativeTraits';
+with 'Test::Builder2::MouseX::NativeTraits';
 
 sub method_provider_class {
-    return 'MouseX::NativeTraits::MethodProvider::Counter';
+    return 'Test::Builder2::MouseX::NativeTraits::MethodProvider::Counter';
 }
 
 sub helper_type {
@@ -13,18 +13,18 @@ sub helper_type {
 
 sub _default_default { 0 }
 
-no Mouse::Role;
+no Test::Builder2::Mouse::Role;
 1;
 __END__
 
 =head1 NAME
 
-MouseX::NativeTraits::Counter - Helper trait for counter attributes
+Test::Builder2::MouseX::NativeTraits::Counter - Helper trait for counter attributes
 
 =head1 SYNOPSIS
 
   package MyHomePage;
-  use Mouse;
+  use Test::Builder2::Mouse;
 
   has 'counter' => (
       traits    => ['Counter'],
@@ -58,7 +58,7 @@ above. This allows for a very basic counter definition:
 =head1 PROVIDED METHODS
 
 These methods are implemented in
-L<MouseX::NativeTraits::MethodProvider::Counter>. It is important to
+L<Test::Builder2::MouseX::NativeTraits::MethodProvider::Counter>. It is important to
 note that all those methods do in place modification of the value stored in
 the attribute.
 
@@ -98,6 +98,6 @@ Resets the value stored in this slot to it's default value.
 
 =head1 SEE ALSO
 
-L<MouseX::NativeTraits>
+L<Test::Builder2::MouseX::NativeTraits>
 
 =cut
