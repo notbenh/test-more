@@ -66,20 +66,15 @@ Like C<< ++$count >>.
 use Test::Builder2::Types;
 
 has _count => (
+    traits      => ['Counter'],
     is          => 'rw',
     isa         => 'Test::Builder2::Positive_Int',
     default     => 0,
+    handles     => { increment => 'inc',
+                     #set       => 'set', # our set needs to return the replaced value (WHY?)
+                     reset     => 'reset',
+                   },
 );
-
-sub increment {
-    my $self = shift;
-    my $amount = @_ ? shift : 1;
-
-    my $new_amount = $self->_count + $amount;
-    $self->set( $new_amount );
-
-    return $new_amount;
-}
 
 =head3 set
 
@@ -108,10 +103,6 @@ Gets the $count.
 
 =cut
 
-sub get {
-    my $self = shift;
-
-    return $self->_count;
-}
+sub get {shift->_count};
 
 1;
