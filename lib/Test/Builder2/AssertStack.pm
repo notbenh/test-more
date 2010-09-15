@@ -5,8 +5,6 @@ use Test::Builder2::Mouse;
 use Test::Builder2::Types;
 
 use Carp qw(confess);
-sub sanity ($) { confess "Assert failed" unless $_[0] };
-
 
 =head1 NAME
 
@@ -46,12 +44,48 @@ Asserts are stored as L<Test::Builder2::AssertRecord> objects.
 Returns an array ref of the Test::Builder2::AssertRecord objects on
 the stack.
 
+=head2 all_asserts
+
+    my @asserts = $stack->all_asserts;
+
+Returns an array of the Test::Builder2::AssertRecord objects, this
+is just the derefed version of 'asserts'.
+
+=head2 assert_count
+
+Returns the count of Asserts stored in the stack.
+
+=head2 has_assert, has_asserts
+
+True if the count of asserts is greater then zero.
+
+=head2 push
+
+    $stack->push(@asserts);
+
+Push asserts onto the stack
+
+=head2 pop
+
+    my $assert = $stack->pop;
+
+Pop an assert off the stack
+
 =cut
 
 has asserts =>
-  is            => 'ro',
-  isa           => 'ArrayRef[Test::Builder2::AssertRecord]',
-  default       => sub { [] }
+    traits        => ['Array'],
+    is            => 'rw',
+    isa           => 'ArrayRef[Test::Builder2::AssertRecord]',
+    default       => sub { [] },
+    handles       => {
+        all_asserts    => 'elements',
+        assert_count   => 'count',
+        has_assert     => 'count',
+        has_asserts    => 'count',
+        push           => 'push',
+        pop            => 'pop',
+    },
 ;
 
 =head2 top
@@ -62,11 +96,7 @@ Returns the top AssertRecord on the stack.
 
 =cut
 
-sub top {
-    my $self = shift;
-
-    return $self->asserts->[0];
-}
+sub top { shift->asserts->[0] }
 
 =head2 at_top
 
@@ -76,25 +106,7 @@ Returns true if the stack contains just one assert.
 
 =cut
 
-sub at_top {
-    my $self = shift;
-
-    return @{$self->asserts} == 1;
-}
-
-=head2 in_assert
-
-    my $is_in_assert = $stack->in_assert;
-
-Returns true if there are any assertions on the stack
-
-=cut
-
-sub in_assert {
-    my $self = shift;
-
-    return @{$self->asserts} ? 1 : 0;
-}
+sub at_top { shift->assert_count == 1 }
 
 =head2 from_top
 
@@ -107,6 +119,7 @@ Convenient for printing failure diagnostics.
 
 =cut
 
+sub sanity ($) { confess "Assert failed" unless $_[0] };
 sub from_top {
     my $self = shift;
 
@@ -115,38 +128,6 @@ sub from_top {
 
     return sprintf "%s at %s line %d", join("", @_), $top->filename, $top->line;
 }
-
-
-=head2 push
-
-    $stack->push(@asserts);
-
-Push asserts onto the stack
-
-=cut
-
-sub push {
-    my $self = shift;
-    push @{$self->asserts}, @_;
-}
-
-=head2 pop
-
-    my $assert = $stack->pop;
-
-Pop an assert off the stack
-
-=cut
-
-sub pop {
-    my $self = shift;
-
-    my $asserts = $self->asserts;
-    sanity @$asserts;
-
-    return pop @$asserts;
-}
-
 
 no Test::Builder2::Mouse;
 
